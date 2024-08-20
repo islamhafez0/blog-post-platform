@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  font-family: Inter, sans-serif;
+}
+body {
+  background-color: #f1f5f9;
+  color: #4b5563;
+}
+.loader_wrapper {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.loader {
+  @apply text-blue-600;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 10px solid transparent;
+  border-top-color: var(--clr);
+}
+
+.loader:before {
+  z-index: 100;
+  animation: spin 1s infinite;
+}
+
+.loader:after {
+  border: 10px solid #ccc;
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+._transition {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.ql-toolbar {
+  @apply flex items-center gap-4 flex-wrap;
+  .ql-formats {
+    @apply !m-0;
+  }
+}
+
+.ql-syntax {
+  @apply !bg-gray-200 !text-gray-900;
+}
+
+.ql-editor {
+  min-height: 20vh;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.blog-body {
+  * {
+    word-break: break-word;
+  }
+  h1 {
+    @apply my-8 text-4xl font-bold leading-tight;
+  }
+
+  h2 {
+    @apply my-8 text-3xl font-semibold leading-snug;
+  }
+
+  h3 {
+    @apply my-8 text-2xl font-medium leading-snug;
+  }
+
+  p {
+    @apply py-2 text-base leading-relaxed;
+  }
+
+  ul,
+  ol {
+    @apply list-disc ml-9 mb-4;
+    li {
+      @apply my-1;
+    }
+  }
+
+  ol {
+    @apply list-decimal ml-9 mb-4;
+    li {
+      @apply my-1;
+    }
+  }
+
+  blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-700 my-2;
+  }
+
+  pre {
+    @apply bg-gray-200 text-black p-4 rounded-md overflow-x-auto;
+  }
+
+  code {
+    @apply bg-gray-200 text-black px-1 py-0.5 rounded overflow-scroll;
+  }
+  iframe {
+    width: 100%;
+    height: 300px;
+  }
+  img {
+    @apply max-w-full h-auto rounded-md;
+  }
+
+  a {
+    @apply !text-blue-500 underline hover:!text-blue-700;
+  }
+
+  table {
+    @apply w-full border-collapse my-4;
+  }
+
+  th,
+  td {
+    @apply border border-gray-300 p-2;
+  }
+
+  th {
+    @apply bg-gray-200 font-semibold;
+  }
+  *:has(code) {
+    @apply overflow-x-auto;
+  }
+  p:has(br),
+  h3:has(br),
+  h2:has(br) {
+    @apply hidden;
+  }
+}
+.blog-body[dir="rtl"] {
+  ul,
+  ol {
+    @apply list-disc mr-9 mb-4;
+    li {
+      @apply my-1;
+    }
+  }
+}
+.hr-or {
+  @apply text-gray-500 relative w-full text-center my-4 after:content-[''] after:absolute after:bottom-2 after:right-0 after:w-[calc(50%-1rem)] after:h-[1px] after:bg-gray-500 before:content-[''] before:absolute before:bottom-2 before:left-0 before:w-[calc(50%-1rem)] before:h-[1px] before:bg-gray-500;
+}
+.hasArabic .ql-editor {
+  direction: rtl;
+  text-align: right;
+  ul,
+  ol {
+    @apply list-disc mr-9 mb-4;
+    li {
+      @apply my-1;
+    }
+  }
+}
+pre {
+  text-align: left !important;
+}
