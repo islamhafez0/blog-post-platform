@@ -23,4 +23,5 @@ A blog post platform built with React and Firebase. The website offers users the
 - **Frontend**: React, TypeScript, Tailwind CSS
 - **Backend**: Firebase Firestore, Firebase Authentication
 - **Icons**: React Icons
-- **Deployment**: Vercel, Firebase
+- **Deployment**: [Vercel](https://blog-post-platform-eight.vercel.app/), [Firebase](https://blog-post-d18a6.web.app/)
+
