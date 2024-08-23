@@ -39,7 +39,7 @@ const UserPosts = ({ userId }: { userId: string }) => {
   }
 
   return (
-    <ul className="flex flex-wrap gap-4">
+    <ul className="flex justify-center md:justify-unset flex-wrap gap-4">
       {(posts.length == 0 || !posts.length) && (
         <p className="text-center w-full text-gray-400">No posts yet</p>
       )}
