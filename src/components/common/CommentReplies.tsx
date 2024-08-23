@@ -84,7 +84,9 @@ const CommentReplies = ({
             size={18}
             className={`${showReplies ? "rotate-180" : ""}`}
           />
-          <span>{replies?.length} Replies</span>
+          <span>
+            {replies?.length} {replies?.length == 1 ? "Reply" : "Replies"}
+          </span>
         </button>
         {showReplies && (
           <ul className="ml-8">

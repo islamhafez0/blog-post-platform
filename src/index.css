@@ -5,8 +5,7 @@
   font-family: Inter, sans-serif;
 }
 body {
-  background-color: #f1f5f9;
-  color: #4b5563;
+  @apply bg-[#f1f5f9] text-[#4b5563];
 }
 *[dir="rtl"] {
   @apply text-right;
@@ -15,9 +14,7 @@ body {
   @apply fixed top-0 flex items-center justify-center w-full h-full;
 }
 .loader {
-  @apply text-blue-600 relative;
-  width: 50px;
-  height: 50px;
+  @apply text-blue-600 relative w-[50px] h-[50px];
 }
 .loader:before,
 .loader:after {
@@ -72,9 +69,7 @@ body {
 }
 
 .ql-editor {
-  min-height: 20vh;
-  max-height: 50vh;
-  overflow-y: auto;
+  @apply min-h-[30vh] max-h-[50vh] overflow-y-auto;
 }
 
 .blog-body {
@@ -124,8 +119,7 @@ body {
     @apply bg-gray-200 text-black px-1 py-0.5 rounded overflow-scroll;
   }
   iframe {
-    width: 100%;
-    height: 300px;
+    @apply w-full h-80;
   }
   img {
     @apply max-w-full h-auto rounded-md;
@@ -169,8 +163,8 @@ body {
   @apply text-gray-500 relative w-full text-center my-4 after:content-[''] after:absolute after:bottom-2 after:right-0 after:w-[calc(50%-1rem)] after:h-[1px] after:bg-gray-500 before:content-[''] before:absolute before:bottom-2 before:left-0 before:w-[calc(50%-1rem)] before:h-[1px] before:bg-gray-500;
 }
 .hasArabic .ql-editor {
+  @apply text-right;
   direction: rtl;
-  text-align: right;
   ul,
   ol {
     @apply list-disc mr-9 mb-4;
@@ -180,5 +174,5 @@ body {
   }
 }
 pre {
-  text-align: left !important;
+  @apply !text-left;
 }

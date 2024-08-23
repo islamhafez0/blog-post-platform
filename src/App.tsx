@@ -25,10 +25,14 @@ const App = () => {
   const shouldShowHeaderAndFooter =
     !location.pathname.includes("/auth") &&
     !location.pathname.includes("/user/profile");
+
+  const shouldShowScrollprogressButton =
+    !location.pathname.includes("add-new-post");
+
   return (
     <main className="min-h-screen flex flex-col justify-between">
       <div>
-        <ScrollToTop />
+        {shouldShowScrollprogressButton && <ScrollToTop />}
         {shouldShowHeaderAndFooter && <Header />}
         <Routes>
           <Route path="/" element={<HomePage />} />
