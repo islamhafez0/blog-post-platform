@@ -110,137 +110,142 @@ const AddPostForm = () => {
         Add Post
       </h2>
       <form onSubmit={handleSubmit} className="mt-8">
-        <div className="flex flex-col w-full mb-8 relative text-gray-500 group">
-          <label
-            className={`
+        <div className="flex flex-col lg:flex-row gap-4">
+          <div className="flex flex-col w-full mb-8 relative text-gray-500 group">
+            <label
+              className={`
               text-gray-300 absolute top-1/2 -translate-y-1/2 left-2 text-sm px-1 pointer-events-none select-none group-focus-within:!-top-0.5 group-focus-within:text-gray-600 group-focus-within:bg-white _transition
               ${formData["title"].trim() && "!-top-0.5 text-gray-600 bg-white"}
               `}
-            htmlFor={"title"}
-          >
-            Title
-          </label>
-          <input
-            onChange={handleInputChange}
-            value={formData.title}
-            dir={containsArabicCharacters(formData.title) ? "rtl" : "ltr"}
-            className={`
+              htmlFor={"title"}
+            >
+              Title
+            </label>
+            <input
+              onChange={handleInputChange}
+              value={formData.title}
+              dir={containsArabicCharacters(formData.title) ? "rtl" : "ltr"}
+              className={`
               bg-transparent border-gray-300 border px-2.5 py-1 rounded-sm outline-none  transition-all duration-200 ease-in-out group-focus-within:border-gray-600
               ${formData["title"].trim() && "border-gray-600"}
               `}
-            type="text"
-            name="title"
-            id="title"
-          />
-          {formErrors.title && (
-            <p className="absolute -bottom-5 text-red-500 text-sm">
-              {formErrors.title}
-            </p>
-          )}
-        </div>
-        <div className="flex flex-col w-full mb-8 relative text-gray-500 group">
-          <label
-            className={`
+              type="text"
+              name="title"
+              id="title"
+            />
+            {formErrors.title && (
+              <p className="absolute -bottom-5 text-red-500 text-sm">
+                {formErrors.title}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col w-full mb-8 relative text-gray-500 group">
+            <label
+              className={`
               text-gray-300 absolute top-1/2 -translate-y-1/2 left-2 text-sm px-1 pointer-events-none select-none group-focus-within:!-top-0.5 group-focus-within:text-gray-600 group-focus-within:bg-white _transition
               ${
                 formData["excerpt"].trim() && "!-top-0.5 text-gray-600 bg-white"
               }
               `}
-            htmlFor={"excerpt"}
-          >
-            Subtitle (Optional)
-          </label>
-          <input
-            onChange={handleInputChange}
-            value={formData.excerpt}
-            dir={containsArabicCharacters(formData.excerpt) ? "rtl" : "ltr"}
-            className={`bg-transparent border-gray-300 border px-2.5 py-1 rounded-sm outline-none  transition-all duration-200 ease-in-out group-focus-within:border-gray-600 ${
-              formData["excerpt"].trim() && "border-gray-600"
-            }`}
-            type="text"
-            name="excerpt"
-            id="excerpt"
-          />
+              htmlFor={"excerpt"}
+            >
+              Subtitle (Optional)
+            </label>
+            <input
+              onChange={handleInputChange}
+              value={formData.excerpt}
+              dir={containsArabicCharacters(formData.excerpt) ? "rtl" : "ltr"}
+              className={`bg-transparent border-gray-300 border px-2.5 py-1 rounded-sm outline-none  transition-all duration-200 ease-in-out group-focus-within:border-gray-600 ${
+                formData["excerpt"].trim() && "border-gray-600"
+              }`}
+              type="text"
+              name="excerpt"
+              id="excerpt"
+            />
+          </div>
         </div>
-        <div className="flex flex-col w-full mb-8 relative text-gray-500 group">
-          <label
-            className={`text-gray-300 absolute top-1/2 -translate-y-1/2 left-2 text-sm px-1 pointer-events-none select-none group-focus-within:!-top-0.5 group-focus-within:text-gray-600 group-focus-within:bg-white _transition ${
-              formData["tags"].trim() && "!-top-0.5 text-gray-600 bg-white"
-            }`}
-            htmlFor={"tags"}
-          >
-            Tags (separted by comma)
-          </label>
-          <input
-            onChange={handleInputChange}
-            value={formData.tags}
-            dir={containsArabicCharacters(formData.tags) ? "rtl" : "ltr"}
-            className={`bg-transparent border-gray-300 border px-2.5 py-1 rounded-sm outline-none  transition-all duration-200 ease-in-out group-focus-within:border-gray-600 ${
-              formData["tags"].trim() && "border-gray-600"
-            }`}
-            type="text"
-            name="tags"
-            id="tags"
-          />
-          {formErrors.tags && (
-            <p className="absolute -bottom-5 text-red-500 text-sm">
-              {formErrors.tags}
-            </p>
-          )}
-        </div>
-        <div className="flex flex-col w-full mb-8 relative text-gray-500 group">
-          <label
-            className={`text-gray-300 absolute top-1/2 -translate-y-1/2 left-2 text-sm px-1 pointer-events-none select-none group-focus-within:!-top-0.5 group-focus-within:text-gray-600 group-focus-within:bg-white _transition ${
-              formData["imageURL"].trim() && "!-top-0.5 text-gray-600 bg-white"
-            }`}
-            htmlFor={"imageURL"}
-          >
-            Image URL
-          </label>
-          <input
-            onChange={handleInputChange}
-            value={formData.imageURL}
-            className={`bg-transparent border-gray-300 border px-2.5 py-1 rounded-sm outline-none  transition-all duration-200 ease-in-out group-focus-within:border-gray-600 ${
-              formData["imageURL"].trim() && "border-gray-600"
-            }`}
-            type="text"
-            name="imageURL"
-            id="imageURL"
-          />
-          {formErrors.imageURL && (
-            <p className="absolute -bottom-5 text-red-500 text-sm">
-              {formErrors.imageURL}
-            </p>
-          )}
-        </div>
-        <div className="flex flex-col w-full mb-8 relative text-gray-500 group">
-          <label
-            className={`text-gray-300 absolute top-1/2 -translate-y-1/2 left-2 text-sm px-1 pointer-events-none select-none group-focus-within:!-top-0.5 group-focus-within:text-gray-600 group-focus-within:bg-white _transition
+        <div className="flex flex-col lg:flex-row lg:gap-4">
+          <div className="flex flex-col w-full mb-8 relative text-gray-500 group">
+            <label
+              className={`text-gray-300 absolute top-1/2 -translate-y-1/2 left-2 text-sm px-1 pointer-events-none select-none group-focus-within:!-top-0.5 group-focus-within:text-gray-600 group-focus-within:bg-white _transition ${
+                formData["tags"].trim() && "!-top-0.5 text-gray-600 bg-white"
+              }`}
+              htmlFor={"tags"}
+            >
+              Tags (separted by comma)
+            </label>
+            <input
+              onChange={handleInputChange}
+              value={formData.tags}
+              dir={containsArabicCharacters(formData.tags) ? "rtl" : "ltr"}
+              className={`bg-transparent border-gray-300 border px-2.5 py-1 rounded-sm outline-none  transition-all duration-200 ease-in-out group-focus-within:border-gray-600 ${
+                formData["tags"].trim() && "border-gray-600"
+              }`}
+              type="text"
+              name="tags"
+              id="tags"
+            />
+            {formErrors.tags && (
+              <p className="absolute -bottom-5 text-red-500 text-sm">
+                {formErrors.tags}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col w-full mb-8 relative text-gray-500 group">
+            <label
+              className={`text-gray-300 absolute top-1/2 -translate-y-1/2 left-2 text-sm px-1 pointer-events-none select-none group-focus-within:!-top-0.5 group-focus-within:text-gray-600 group-focus-within:bg-white _transition ${
+                formData["imageURL"].trim() &&
+                "!-top-0.5 text-gray-600 bg-white"
+              }`}
+              htmlFor={"imageURL"}
+            >
+              Image URL
+            </label>
+            <input
+              onChange={handleInputChange}
+              value={formData.imageURL}
+              className={`bg-transparent border-gray-300 border px-2.5 py-1 rounded-sm outline-none  transition-all duration-200 ease-in-out group-focus-within:border-gray-600 ${
+                formData["imageURL"].trim() && "border-gray-600"
+              }`}
+              type="text"
+              name="imageURL"
+              id="imageURL"
+            />
+            {formErrors.imageURL && (
+              <p className="absolute -bottom-5 text-red-500 text-sm">
+                {formErrors.imageURL}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col w-full mb-8 relative text-gray-500 group">
+            <label
+              className={`text-gray-300 absolute top-1/2 -translate-y-1/2 left-2 text-sm px-1 pointer-events-none select-none group-focus-within:!-top-0.5 group-focus-within:text-gray-600 group-focus-within:bg-white _transition
               ${
                 formData["category"].trim() &&
                 "!-top-0.5 text-gray-600 bg-white"
               }
               `}
-            htmlFor={"category"}
-          >
-            Category
-          </label>
-          <input
-            onChange={handleInputChange}
-            value={formData.category}
-            dir={containsArabicCharacters(formData.category) ? "rtl" : "ltr"}
-            className={`bg-transparent border-gray-300 border px-2.5 py-1 rounded-sm outline-none  transition-all duration-200 ease-in-out group-focus-within:border-gray-600 ${
-              formData["category"].trim() && "border-gray-600"
-            }`}
-            type="text"
-            name="category"
-            id="category"
-          />
-          {formErrors.category && (
-            <p className="absolute -bottom-5 text-red-500 text-sm">
-              {formErrors.category}
-            </p>
-          )}
+              htmlFor={"category"}
+            >
+              Category
+            </label>
+            <input
+              onChange={handleInputChange}
+              value={formData.category}
+              dir={containsArabicCharacters(formData.category) ? "rtl" : "ltr"}
+              className={`bg-transparent border-gray-300 border px-2.5 py-1 rounded-sm outline-none  transition-all duration-200 ease-in-out group-focus-within:border-gray-600 ${
+                formData["category"].trim() && "border-gray-600"
+              }`}
+              type="text"
+              name="category"
+              id="category"
+            />
+            {formErrors.category && (
+              <p className="absolute -bottom-5 text-red-500 text-sm">
+                {formErrors.category}
+              </p>
+            )}
+          </div>
         </div>
         <div className="relative flex flex-col w-full mb-8">
           <TextEditor
